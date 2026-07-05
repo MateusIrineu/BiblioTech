@@ -1,7 +1,7 @@
 # Arquivo: EmprestimoDAO.py
 from DAO.DAO import DAO
 from Modules.Emprestimo.Emprestimo import Emprestimo
-from Modules.Livro.LivroDAO import LivroDAO
+from Modules.Exemplar.ExemplarDAO import ExemplarDAO
 
 class EmprestimoDAO(DAO):
     arquivo = "emprestimos.json"
@@ -12,25 +12,52 @@ class EmprestimoDAO(DAO):
     @classmethod
     def registrar_emprestimo(cls, novo_emprestimo):
         cls.abrir()
-        
-        # 1. Busca o livro correspondente via LivroDAO para verificar o estoque/disponibilidade
-        livros = LivroDAO.listar()
-        livro_encontrado = None
-        for l in livros:
-            if l.id == novo_emprestimo.id_livro:
-                livro_encontrado = l
+
+        # 1. Busca o exemplar correspondente via ExemplarDAO para verificar a disponibilidade
+        exemplares = ExemplarDAO.listar()
+        exemplar_encontrado = None
+        for e in exemplares:
+            if e.id == novo_emprestimo.id_exemplar:
+                exemplar_encontrado = e
                 break
 
-        # 2. Aplica a Regra de Negócio: Se o livro existe e está disponível, realiza a operação
-        if livro_encontrado and livro_encontrado.disponivel:
-            # Altera a entidade Livro (Status passa a ser Indisponível)
-            livro_encontrado.disponivel = False
-            LivroDAO.atualizar(livro_encontrado)
-            
+        # 2. Aplica a Regra de Negócio: Se o exemplar existe e está disponível, realiza a operação
+        if exemplar_encontrado and exemplar_encontrado.disponivel:
+            # Altera a entidade Exemplar (Status passa a ser Indisponível)
+            exemplar_encontrado.disponivel = False
+            ExemplarDAO.atualizar(exemplar_encontrado)
+
             # Insere o novo empréstimo no arquivo correspondente
             cls.inserir(novo_emprestimo)
-            print(f"-> SUCESSO: O livro '{livro_encontrado.titulo}' foi emprestado.")
+            print(f"-> SUCESSO: O exemplar '{exemplar_encontrado.codigo_tombo}' foi emprestado.")
             return True
         else:
-            print(f"-> ERRO: Não foi possível emprestar. Livro ocupado ou inexistente.")
+            print(f"-> ERRO: Não foi possível emprestar. Exemplar ocupado ou inexistente.")
             return False
+
+    # ATENDE AO REQUISITO: Regra de negócio complementar (devolução)
+    @classmethod
+    def registrar_devolucao(cls, id_emprestimo: int):
+        cls.abrir()
+
+        emprestimo_encontrado = None
+        for emp in cls.objetos:
+            if emp.id == id_emprestimo and emp.ativo:
+                emprestimo_encontrado = emp
+                break
+
+        if not emprestimo_encontrado:
+            print("-> ERRO: Empréstimo ativo não encontrado.")
+            return False
+
+        exemplares = ExemplarDAO.listar()
+        for e in exemplares:
+            if e.id == emprestimo_encontrado.id_exemplar:
+                e.disponivel = True
+                ExemplarDAO.atualizar(e)
+                break
+
+        emprestimo_encontrado.ativo = False
+        cls.atualizar(emprestimo_encontrado)
+        print(f"-> SUCESSO: Devolução do empréstimo {id_emprestimo} registrada.")
+        return True

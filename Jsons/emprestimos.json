@@ -1,7 +1,7 @@
 [
     {
         "id": 777,
-        "id_livro": 101,
+        "id_exemplar": 201,
         "id_usuario": 10,
         "data_retirada": "30/06/2026",
         "ativo": true

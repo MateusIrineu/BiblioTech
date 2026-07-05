@@ -12,12 +12,5 @@
         "email": "gabriel@email.com",
         "senha": "1234",
         "perfil": "leitor"
-    },
-    {
-        "id": 10,
-        "nome": "Gabriel Medeiros",
-        "email": "gabriel@email.com",
-        "senha": "1234",
-        "perfil": "leitor"
     }
 ]

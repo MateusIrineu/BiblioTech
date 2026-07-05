@@ -4,15 +4,13 @@
         "titulo": "O Senhor dos Anéis",
         "id_categoria": 1,
         "id_autor": 50,
-        "id_editora": 900,
-        "disponivel": false
+        "id_editora": 900
     },
     {
         "id": 101,
         "titulo": "O Senhor dos Anéis",
         "id_categoria": 1,
         "id_autor": 50,
-        "id_editora": 900,
-        "disponivel": true
+        "id_editora": 900
     }
 ]
