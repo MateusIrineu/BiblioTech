@@ -8,5 +8,15 @@
         "id": 50,
         "nome": "J.R.R. Tolkien",
         "nacionalidade": "Britânico"
+    },
+    {
+        "id": 4,
+        "nome": "Irineu",
+        "nacionalidade": "Brasileiro"
+    },
+    {
+        "id": 51,
+        "nome": "teste",
+        "nacionalidade": "teste"
     }
 ]

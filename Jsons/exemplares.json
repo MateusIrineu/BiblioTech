@@ -9,7 +9,7 @@
         "id": 202,
         "id_livro": 101,
         "codigo_tombo": "TOMBO-002",
-        "disponivel": true
+        "disponivel": false
     },
     {
         "id": 201,

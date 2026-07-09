@@ -1,4 +1,3 @@
-# Arquivo: EmprestimoDAO.py
 from DAO.DAO import DAO
 from Modules.Emprestimo.Emprestimo import Emprestimo
 from Modules.Exemplar.ExemplarDAO import ExemplarDAO
@@ -27,8 +26,9 @@ class EmprestimoDAO(DAO):
             exemplar_encontrado.disponivel = False
             ExemplarDAO.atualizar(exemplar_encontrado)
 
-            # Insere o novo empréstimo no arquivo correspondente
+            # 3. Insere o novo empréstimo (A classe DAO mãe vai gerar o ID automaticamente aqui!)
             cls.inserir(novo_emprestimo)
+            
             print(f"-> SUCESSO: O exemplar '{exemplar_encontrado.codigo_tombo}' foi emprestado.")
             return True
         else:
@@ -61,3 +61,10 @@ class EmprestimoDAO(DAO):
         cls.atualizar(emprestimo_encontrado)
         print(f"-> SUCESSO: Devolução do empréstimo {id_emprestimo} registrada.")
         return True
+    
+    @classmethod
+    def listar_emprestimos(cls):
+        try:
+            return cls.listar()
+        except Exception as e:
+            raise Exception(f"Erro ao buscar o histórico de empréstimos: {str(e)}")

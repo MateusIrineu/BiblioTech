@@ -1,16 +1,23 @@
 [
     {
-        "id": 10,
-        "nome": "Gabriel Medeiros",
-        "email": "gabriel@email.com",
-        "senha": "1234",
+        "id": 1,
+        "nome": "admin",
+        "email": "admin",
+        "senha": "admin",
+        "perfil": "admin"
+    },
+    {
+        "id": 2,
+        "nome": "mateus",
+        "email": "m@gmail.com",
+        "senha": "9999",
         "perfil": "leitor"
     },
     {
-        "id": 10,
-        "nome": "Gabriel Medeiros",
-        "email": "gabriel@email.com",
-        "senha": "1234",
+        "id": 3,
+        "nome": "oliveira",
+        "email": "oliveira",
+        "senha": "9999",
         "perfil": "leitor"
     }
 ]

@@ -10,6 +10,15 @@ class DAO:
     @classmethod
     def inserir(cls, obj):
         cls.abrir()
+        
+        # --- LÓGICA DE AUTO-INCREMENTO GENÉRICO ---
+        # Varre os objetos da classe filha, pega o maior ID e soma 1.
+        # Caso a lista esteja vazia, assume 0 e soma 1 (primeiro ID será 1).
+        novo_id = max([o.id for o in cls.objetos], default=0) + 1
+        
+        # Atribui o novo ID gerado ao objeto antes de salvá-lo
+        obj.id = novo_id
+        
         cls.objetos.append(obj)
         cls.salvar()
 
