@@ -11,6 +11,20 @@
         "id_exemplar": 202,
         "id_usuario": 2,
         "data_retirada": "09/07/2026",
+        "ativo": false
+    },
+    {
+        "id": 3,
+        "id_exemplar": 202,
+        "id_usuario": 4,
+        "data_retirada": "09/07/2005",
+        "ativo": false
+    },
+    {
+        "id": 4,
+        "id_exemplar": 201,
+        "id_usuario": 4,
+        "data_retirada": "05/10/2026",
         "ativo": true
     }
 ]

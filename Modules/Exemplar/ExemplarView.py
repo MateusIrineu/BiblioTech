@@ -30,3 +30,11 @@ class ExemplarView:
             raise ve
         except Exception as e:
             raise ValueError(f"Erro ao processar exemplar: {str(e)}")
+        
+    @classmethod
+    def listar(cls):
+        """Método chamado pela main.py para retornar todos os exemplares"""
+        try:
+            return ExemplarDAO.listar()
+        except Exception as e:
+            raise Exception(f"Erro ao listar categorias: {str(e)}")

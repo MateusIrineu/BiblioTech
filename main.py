@@ -45,7 +45,7 @@ def menu_gerenciar_categorias():
                 if not categorias:
                     print("Nenhuma categoria cadastrada ainda.")
                 else:
-                    for cat in categories:
+                    for cat in categorias:
                         print(f"ID: {cat.id} | Nome: {cat.nome}")
             except Exception as e:
                 print(f"❌ Erro Crítico: {e}")
