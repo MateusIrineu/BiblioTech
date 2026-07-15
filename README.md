@@ -153,3 +153,7 @@ BiblioTech/
 ![Diagrama de Casos de Uso do Projeto BiblioTech](docs/diagrama_caso_de_uso.png)
 
 ![Diagrama de Classes do Projeto BiblioTech](docs/diagrama_classes.png)
+
+![Diagrama de Classes do Projeto BiblioTech](docs/interface-com-usuario.png)
+
+![Diagrama de Classes do Projeto BiblioTech](docs/classes-de-operacao.png)
