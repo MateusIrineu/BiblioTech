@@ -154,6 +154,10 @@ BiblioTech/
 
 ![Diagrama de Classes do Projeto BiblioTech](docs/diagrama_classes.png)
 
+## Diagrama de Classes de Interface do Usuario
+
 ![Diagrama de Classes do Projeto BiblioTech](docs/interface-com-usuario.png)
+
+## Diagrama de Classes de Operações (View)
 
 ![Diagrama de Classes do Projeto BiblioTech](docs/classes-de-operacao.png)
