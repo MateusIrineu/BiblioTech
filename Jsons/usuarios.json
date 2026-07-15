@@ -26,5 +26,12 @@
         "email": "aaa@gmail.com",
         "senha": "123",
         "perfil": "leitor"
+    },
+    {
+        "id": 5,
+        "nome": "Cairo",
+        "email": "cairo@mail.com",
+        "senha": "123",
+        "perfil": "leitor"
     }
 ]

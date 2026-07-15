@@ -41,3 +41,13 @@ class LivroView:
             LivroDAO.excluir(id_livro)
         except Exception as e:
             raise Exception(f"Erro ao deletar livro: {str(e)}")
+
+    @classmethod
+    def pesquisar_por_titulo(cls, termo: str):
+        """Pesquisa parcial de livros por título"""
+        try:
+            if not termo:
+                raise ValueError("Informe um termo de pesquisa.")
+            return LivroDAO.pesquisar_por_titulo(termo)
+        except Exception as e:
+            raise Exception(f"Erro ao pesquisar livro: {str(e)}")

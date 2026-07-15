@@ -18,5 +18,15 @@
         "id": 51,
         "nome": "teste",
         "nacionalidade": "teste"
+    },
+    {
+        "id": 52,
+        "nome": "Arthur Conan Doyle",
+        "nacionalidade": "Escocia"
+    },
+    {
+        "id": 53,
+        "nome": "Fiodor Dostoievski",
+        "nacionalidade": "Russia"
     }
 ]
