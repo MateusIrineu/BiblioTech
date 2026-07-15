@@ -2,10 +2,10 @@
 
 class Exemplar:
     def __init__(self, id_exemplar: int, id_livro: int, codigo_tombo: str, disponivel: bool = True):
-        self.id = id_exemplar
-        self.id_livro = id_livro          # Associação 1 para N com Livro
-        self.codigo_tombo = codigo_tombo  # Identifica fisicamente a cópia (ex: patrimônio)
-        self.disponivel = disponivel
+        self.id = id_exemplar             # <-- ID DO EXEMPLAR
+        self.id_livro = id_livro          # <-- ID DO LIVRO  / Associação 1 para N com Livro
+        self.codigo_tombo = codigo_tombo  # <-- CÓDIGO TOMBO / Identifica fisicamente a cópia (ex: patrimônio)
+        self.disponivel = disponivel      # <-- IDENTIFICA SE EXEMPLAR ESTÁ OU NÃO DISPONÍVEL
 
     def to_dict(self) -> dict:
         return {

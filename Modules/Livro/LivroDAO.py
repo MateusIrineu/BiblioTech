@@ -3,9 +3,9 @@ from DAO.DAO import DAO
 from Modules.Livro.Livro import Livro
 
 class LivroDAO(DAO):
-    arquivo = "livros.json"
-    objetos = []
-    classe_modelo = Livro
+    arquivo = "livros.json"     # Nome do arquivo JSON usado para persistir os livros
+    objetos = []                # Lista própria da subclasse (evita conflito com a lista da classe mãe DAO)
+    classe_modelo = Livro       # Define qual classe será usada no from_dict() (polimorfismo) ao reconstruir os objetos
 
     # ATENDE AO REQUISITO: Operação de Pesquisa Parcial
     @classmethod

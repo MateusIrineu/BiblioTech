@@ -3,9 +3,9 @@ from Modules.Emprestimo.Emprestimo import Emprestimo
 from Modules.Exemplar.ExemplarDAO import ExemplarDAO
 
 class EmprestimoDAO(DAO):
-    arquivo = "emprestimos.json"
-    objetos = []
-    classe_modelo = Emprestimo
+    arquivo = "emprestimos.json"    # Nome do arquivo JSON usado para persistir os empréstimos
+    objetos = []                    # Lista própria da subclasse (evita conflito com a lista da classe mãe DAO)
+    classe_modelo = Emprestimo      # Define qual classe será usada no from_dict() (polimorfismo) ao reconstruir os objetos
 
     # ATENDE AO REQUISITO: Regra de negócio complexa envolvendo múltiplas entidades
     @classmethod

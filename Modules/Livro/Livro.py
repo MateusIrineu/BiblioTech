@@ -2,11 +2,11 @@
 
 class Livro:
     def __init__(self, id_livro: int, titulo: str, id_categoria: int, id_autor: int, id_editora: int):
-        self.id = id_livro
-        self.titulo = titulo
-        self.id_categoria = id_categoria  # Associação 1 para N
-        self.id_autor = id_autor          # Associação 1 para N
-        self.id_editora = id_editora      # Associação 1 para N
+        self.id = id_livro                # <-- ID DO LIVRO
+        self.titulo = titulo              # <-- TÍTULO DO LIVRO
+        self.id_categoria = id_categoria  # <-- ID DA CATEGORIA DO LIVRO / Associação 1 para N
+        self.id_autor = id_autor          # <-- ID DO AUTOR DO LIVRO     / Associação 1 para N
+        self.id_editora = id_editora      # <-- ID DA EDITORA DO LIVRO   / Associação 1 para N
         # disponibilidade agora é responsabilidade do Exemplar (cópia física do livro)
 
     def to_dict(self) -> dict:
