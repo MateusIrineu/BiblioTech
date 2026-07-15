@@ -8,5 +8,10 @@
         "id": 900,
         "nome": "HarperCollins",
         "cidade": "São Paulo"
+    },
+    {
+        "id": 901,
+        "nome": "LETRAS",
+        "cidade": "SAO PAULO"
     }
 ]

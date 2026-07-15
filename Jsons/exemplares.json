@@ -22,5 +22,11 @@
         "id_livro": 101,
         "codigo_tombo": "TOMBO-002",
         "disponivel": true
+    },
+    {
+        "id": 203,
+        "id_livro": 103,
+        "codigo_tombo": "TT-586ae3a0",
+        "disponivel": true
     }
 ]

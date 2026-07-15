@@ -2,5 +2,13 @@
     {
         "id": 4,
         "nome": "Romance"
+    },
+    {
+        "id": 5,
+        "nome": "Suspense"
+    },
+    {
+        "id": 6,
+        "nome": "Romance"
     }
 ]

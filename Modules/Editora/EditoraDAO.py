@@ -32,7 +32,7 @@ class EditoraDAO(DAO):
             # Se passou pelas validações, delega para o inserir() da classe mãe (DAO),
             # que fará o append na lista e o salvar() no arquivo JSON
             super().inserir(nova_editora)
-            
+
         except ValueError as ve:
             # Repropaga o erro de validação (regra de negócio) para quem chamou o método,
             # sem "abafar" a mensagem original (ex.: para ser tratada/exibida pela View)

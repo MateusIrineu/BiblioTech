@@ -11,6 +11,8 @@ class EditoraView:
         if not nome.strip() or not cidade.strip():  # Validação de campos obrigatórios (fora do try, erro de entrada imediato)
             raise ValueError("Nome e cidade são obrigatórios.")
 
+    @classmethod
+    def cadastrar_editora(cls, nome: str, cidade: str):
         try:
             editoras = EditoraDAO.listar()  # Busca todas as editoras já cadastradas
             if any(e.id == id_editora for e in editoras):  # Verifica se o ID informado já está em uso (validação também repetida no DAO)

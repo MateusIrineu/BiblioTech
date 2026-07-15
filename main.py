@@ -78,21 +78,20 @@ def menu_gerenciar_categorias():
             print("⚠️ Opção inválida!")
 
 
-def menu_cadastros_basicos():
+def menu_gerenciar_autores():
     while True:
-        print("\n=== CADASTROS BÁSICOS ===")
-        print("1. Gerenciar Categorias (CRUD Completo)")
-        print("2. Cadastrar Autor")
-        print("3. Cadastrar Editora")
-        print("0. Voltar ao Menu Principal")
-        
+        print("\n=== GERENCIAR AUTORES ===")
+        print("1. Cadastrar Autor")
+        print("2. Listar Autores")
+        print("3. Atualizar Autor")
+        print("4. Deletar Autor")
+        print("0. Voltar")
+
         opcao = input("\nEscolha uma opção: ")
-        
+
         if opcao == "0":
             break
         elif opcao == "1":
-            menu_gerenciar_categorias()
-        elif opcao == "2":
             print("\n-- Novo Autor --")
             try:
                 nome = input("Nome: ").strip()
@@ -103,7 +102,61 @@ def menu_cadastros_basicos():
                 print(f"⚠️ Erro: {e}")
             except Exception as e:
                 print(f"❌ Erro Crítico: {e}")
+        elif opcao == "2":
+            print("\n-- Lista de Autores --")
+            try:
+                autores = AutorView.listar()
+                if not autores:
+                    print("Nenhum autor cadastrado ainda.")
+                else:
+                    for a in autores:
+                        print(f"ID: {a.id} | Nome: {a.nome} | Nacionalidade: {a.nacionalidade}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
         elif opcao == "3":
+            print("\n-- Atualizar Autor --")
+            try:
+                id_autor = int(input("Digite o ID do autor que deseja alterar: "))
+                novo_nome = input("Novo Nome: ").strip()
+                nova_nacionalidade = input("Nova Nacionalidade: ").strip()
+                AutorView.atualizar_autor(id_autor, novo_nome, nova_nacionalidade)
+                print("✅ Autor atualizado com sucesso!")
+            except ValueError as e:
+                print(f"⚠️ Erro: {e}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
+        elif opcao == "4":
+            print("\n-- Deletar Autor --")
+            try:
+                id_autor = int(input("Digite o ID do autor a ser excluído: "))
+                confirmacao = input(f"Tem certeza que deseja excluir o ID {id_autor}? (S/N): ").strip().upper()
+                if confirmacao == 'S':
+                    AutorView.deletar_autor(id_autor)
+                    print("✅ Autor excluído com sucesso!")
+                else:
+                    print("Operação cancelada.")
+            except ValueError as e:
+                print(f"⚠️ Erro: {e}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
+        else:
+            print("⚠️ Opção inválida!")
+
+
+def menu_gerenciar_editoras():
+    while True:
+        print("\n=== GERENCIAR EDITORAS ===")
+        print("1. Cadastrar Editora")
+        print("2. Listar Editoras")
+        print("3. Atualizar Editora")
+        print("4. Deletar Editora")
+        print("0. Voltar")
+
+        opcao = input("\nEscolha uma opção: ")
+
+        if opcao == "0":
+            break
+        elif opcao == "1":
             print("\n-- Nova Editora --")
             try:
                 nome = input("Nome: ").strip()
@@ -114,6 +167,65 @@ def menu_cadastros_basicos():
                 print(f"⚠️ Erro: {e}")
             except Exception as e:
                 print(f"❌ Erro Crítico: {e}")
+        elif opcao == "2":
+            print("\n-- Lista de Editoras --")
+            try:
+                editoras = EditoraView.listar()
+                if not editoras:
+                    print("Nenhuma editora cadastrada ainda.")
+                else:
+                    for ed in editoras:
+                        print(f"ID: {ed.id} | Nome: {ed.nome} | Cidade: {ed.cidade}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
+        elif opcao == "3":
+            print("\n-- Atualizar Editora --")
+            try:
+                id_editora = int(input("Digite o ID da editora que deseja alterar: "))
+                novo_nome = input("Novo Nome: ").strip()
+                nova_cidade = input("Nova Cidade: ").strip()
+                EditoraView.atualizar_editora(id_editora, novo_nome, nova_cidade)
+                print("✅ Editora atualizada com sucesso!")
+            except ValueError as e:
+                print(f"⚠️ Erro: {e}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
+        elif opcao == "4":
+            print("\n-- Deletar Editora --")
+            try:
+                id_editora = int(input("Digite o ID da editora a ser excluída: "))
+                confirmacao = input(f"Tem certeza que deseja excluir o ID {id_editora}? (S/N): ").strip().upper()
+                if confirmacao == 'S':
+                    EditoraView.deletar_editora(id_editora)
+                    print("✅ Editora excluída com sucesso!")
+                else:
+                    print("Operação cancelada.")
+            except ValueError as e:
+                print(f"⚠️ Erro: {e}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
+        else:
+            print("⚠️ Opção inválida!")
+
+
+def menu_cadastros_basicos():
+    while True:
+        print("\n=== CADASTROS BÁSICOS ===")
+        print("1. Gerenciar Categorias (CRUD Completo)")
+        print("2. Gerenciar Autores (CRUD Completo)")
+        print("3. Gerenciar Editoras (CRUD Completo)")
+        print("0. Voltar ao Menu Principal")
+        
+        opcao = input("\nEscolha uma opção: ")
+        
+        if opcao == "0":
+            break
+        elif opcao == "1":
+            menu_gerenciar_categorias()
+        elif opcao == "2":
+            menu_gerenciar_autores()
+        elif opcao == "3":
+            menu_gerenciar_editoras()
         else:
             print("⚠️ Opção inválida!")
 
@@ -128,6 +240,7 @@ def submenu_gestao_livros():
         print("2. Listar Livros")
         print("3. Atualizar Livro")
         print("4. Deletar Livro")
+        print("5. Pesquisar Livro por Título")
         print("0. Voltar")
         
         opcao = input("\nEscolha uma opção: ")
@@ -187,6 +300,20 @@ def submenu_gestao_livros():
                 print(f"⚠️ Erro: {e}")
             except Exception as e:
                 print(f"❌ Erro Crítico: {e}")
+        elif opcao == "5":
+            print("\n-- Pesquisar Livro por Título --")
+            try:
+                termo = input("Digite parte do título: ").strip()
+                resultados = LivroView.pesquisar_por_titulo(termo)
+                if not resultados:
+                    print("Nenhum livro encontrado com esse termo.")
+                else:
+                    for livro in resultados:
+                        print(f"ID: {livro.id} | Título: {livro.titulo} | Categoria ID: {livro.id_categoria} | Autor ID: {livro.id_autor}")
+            except ValueError as e:
+                print(f"⚠️ Erro: {e}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
         else:
             print("⚠️ Opção inválida!")
 
@@ -195,6 +322,9 @@ def submenu_gestao_exemplares():
     while True:
         print("\n--- GESTÃO DE EXEMPLARES ---")
         print("1. Cadastrar Exemplar (Cópia Física)")
+        print("2. Listar Exemplares")
+        print("3. Atualizar Exemplar")
+        print("4. Deletar Exemplar")
         print("0. Voltar")
         
         opcao = input("\nEscolha uma opção: ")
@@ -208,6 +338,44 @@ def submenu_gestao_exemplares():
                 codigo = input("Código de Tombamento: ").strip()
                 ExemplarView.cadastrar_exemplar(id_livro, codigo)
                 print("✅ Exemplar adicionado ao acervo!")
+            except ValueError as e:
+                print(f"⚠️ Erro: {e}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
+        elif opcao == "2":
+            print("\n-- Lista de Exemplares --")
+            try:
+                exemplares = ExemplarView.listar()
+                if not exemplares:
+                    print("Nenhum exemplar cadastrado ainda.")
+                else:
+                    for ex in exemplares:
+                        status = "🟢 DISPONÍVEL" if ex.disponivel else "🔴 INDISPONÍVEL"
+                        print(f"ID: {ex.id} | Livro ID: {ex.id_livro} | Tombo: {ex.codigo_tombo} | Status: {status}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
+        elif opcao == "3":
+            print("\n-- Atualizar Exemplar --")
+            try:
+                id_exemplar = int(input("Digite o ID do exemplar que deseja atualizar: "))
+                novo_id_livro = int(input("Novo ID do Livro Referente: "))
+                novo_codigo = input("Novo Código de Tombamento: ").strip()
+                ExemplarView.atualizar_exemplar(id_exemplar, novo_id_livro, novo_codigo)
+                print("✅ Exemplar atualizado com sucesso!")
+            except ValueError as e:
+                print(f"⚠️ Erro: {e}")
+            except Exception as e:
+                print(f"❌ Erro Crítico: {e}")
+        elif opcao == "4":
+            print("\n-- Deletar Exemplar --")
+            try:
+                id_exemplar = int(input("Digite o ID do exemplar a ser excluído: "))
+                confirmacao = input(f"Confirma a exclusão do exemplar {id_exemplar}? (S/N): ").strip().upper()
+                if confirmacao == 'S':
+                    ExemplarView.deletar_exemplar(id_exemplar)
+                    print("✅ Exemplar excluído com sucesso!")
+                else:
+                    print("Operação cancelada.")
             except ValueError as e:
                 print(f"⚠️ Erro: {e}")
             except Exception as e:

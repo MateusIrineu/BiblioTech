@@ -26,5 +26,12 @@
         "id_usuario": 4,
         "data_retirada": "05/10/2026",
         "ativo": true
+    },
+    {
+        "id": 5,
+        "id_exemplar": 203,
+        "id_usuario": 5,
+        "data_retirada": "14/07/2026",
+        "ativo": false
     }
 ]
